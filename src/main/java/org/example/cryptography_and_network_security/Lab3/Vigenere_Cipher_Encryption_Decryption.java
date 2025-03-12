@@ -128,8 +128,8 @@ public class Vigenere_Cipher_Encryption_Decryption {
         return key.replaceAll("[^a-zA-Z]", "").toUpperCase();
     }
     public static void main(String[] args) {
-        String plainText = "H $&u i125";
-        String key = "k                    i";
+        String plainText = "wearediscoveredsaveyourself";
+        String key = "deceptive";
 //        System.out.println(processKey(key , plainText));
         String encryptedText = Vigenere_Cipher_Encryption(plainText, key);
         System.out.println("Encrypted Text: " + encryptedText);

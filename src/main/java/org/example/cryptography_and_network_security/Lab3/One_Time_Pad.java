@@ -58,15 +58,32 @@ public class One_Time_Pad {
         return Plaintext.toString();
     }
 
-    static String generateRandomKey(int length) {
+//    static String generateRandomKey(int length) {
+//        StringBuilder key = new StringBuilder();
+//        for (int i = 0; i < length; i++) {
+//            int randomInt = (int) (Math.random() * 26); // 0-25 for A-Z
+//            char c = (char) ('A' + randomInt); // Uppercase (A-Z)
+//            key.append(c);
+//        }
+//        return key.toString(); // Return uppercase-only key
+//    }
+
+    private static String generateRandomKey(int length) {
         StringBuilder key = new StringBuilder();
+        int x = 5; // Seed value
+
         for (int i = 0; i < length; i++) {
-            int randomInt = (int) (Math.random() * 26); // 0-25 for A-Z
-            char c = (char) ('A' + randomInt); // Uppercase (A-Z)
+            x = (5 * x + 17) % 26; // Apply equation
+            if (x < 0){
+                x += 26;
+            } // Ensure positive value
+            char c = (char) ('A' + x); // Convert to uppercase letter (A-Z)
             key.append(c);
         }
-        return key.toString(); // Return uppercase-only key
+
+        return key.toString();
     }
+
 
     private static String HandelPlainText(String input) {
         return input.replace(" ", ""); // Removes all spaces
